@@ -13,6 +13,7 @@ import java.util.Optional;
 public interface VoteRepository extends JpaRepository<Vote, Long> {
     Optional<Vote> findByUserIdAndPollId(Long userId, Long pollId);
     List<Vote> findByPollId(Long pollId);
+    List<Vote> findByUserId(Long userId);
 
     @Query("SELECT v.option.id, COUNT(v) FROM Vote v WHERE v.poll.id = :pollId GROUP BY v.option.id")
     List<Object[]> countVotesByPollId(@Param("pollId") Long pollId);

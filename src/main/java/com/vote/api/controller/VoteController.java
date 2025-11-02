@@ -39,4 +39,9 @@ public class VoteController {
             .map(ResponseEntity::ok)
             .orElse(ResponseEntity.notFound().build());
     }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<?> getAllUserVotes(@PathVariable Long userId) {
+        return ResponseEntity.ok(voteService.getAllUserVotes(userId));
+    }
 }

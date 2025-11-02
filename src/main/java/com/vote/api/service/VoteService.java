@@ -67,4 +67,8 @@ public class VoteService {
     public Optional<Vote> getUserVoteForPoll(Long userId, Long pollId) {
         return voteRepository.findByUserIdAndPollId(userId, pollId);
     }
+
+    public List<Vote> getAllUserVotes(Long userId) {
+        return voteRepository.findByUserId(userId);
+    }
 }
